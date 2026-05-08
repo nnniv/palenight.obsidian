@@ -1,0 +1,233 @@
+:root {
+	--color-mkp-light: #f0edec;
+	--color-mkp-night: #1a1b2a;
+	--color-mkp-night-lighter: #242839;
+	--color-mkp-purple: #ab9df2;
+	--color-mkp-red: #ff6188;
+	--color-mkp-blue: #78dce8;
+	--color-mkp-green: #a9dc76;
+	--color-mkp-yellow: #ffd866;
+	--color-mkp-orange: #fc9867;
+
+	--color-mkp-comment: #727072;
+	--color-mkp-property: #fcfcfa;
+	--color-mkp-punctuation: #939293;
+	--color-mkp-special: #c1c0c0;
+	--color-mkp-inline-code-bg: #2d3144;
+	--color-mkp-codeblock-bg: #232735;
+}
+
+.workspace-tabs.mod-top,
+.workspace-tab-header-container {
+	background-color: var(--color-mkp-night) !important;
+}
+
+.is-focused .workspace-tab-header-container {
+	background-color: var(--color-mkp-night) !important;
+}
+
+.sidebar-toggle-button {
+	background-color: var(--color-mkp-night) !important;
+}
+
+.setting-items {
+	background-color: var(--color-mkp-night) !important;
+}
+
+button {
+	background-color: var(--color-mkp-purple) !important;
+	color: var(--color-mkp-night) !important;
+}
+
+.select {
+	background-color: var(--color-mkp-blue) !important;
+}
+body {
+	--font-text-theme: "Geist";
+	--font-monospace: "JetBrainsMono Nerd Font";
+
+	--radius-s: 0px;
+	--radius-m: 0px;
+	--radius-l: 0px;
+	--input-radius: 0px;
+	--tab-radius-active: 0px;
+	--checkbox-radius: 0px;
+	--toggle-radius: 0px;
+	--toggle-thumb-radius: 0px;
+	--slider-thumb-radius: 0px;
+}
+
+.cm-content {
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt", "liga";
+}
+
+code,
+.cm-inline-code,
+.markdown-rendered pre code {
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt", "liga";
+}
+
+.theme-dark {
+	--background-primary: var(--color-mkp-night);
+	--background-secondary: var(--color-mkp-night);
+	--code-background: var(--color-mkp-night-lighter);
+}
+
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+	display: none;
+}
+
+svg * {
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	rx: 0;
+	ry: 0;
+}
+
+.menu {
+	padding: var(--size-2-1);
+}
+
+.menu-item {
+	padding: var(--size-4-1) var(--size-4-2);
+}
+
+.menu-separator {
+	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
+}
+
+.cm-header {
+	font-family: "JetBrainsMono Nerd Font";
+}
+
+.cm-header-1 {
+	color: var(--color-mkp-red);
+}
+
+.cm-header-2 {
+	color: var(--color-mkp-purple);
+}
+
+.cm-header-3 {
+	color: var(--color-mkp-orange);
+}
+
+.cm-header-4 {
+	color: var(--color-mkp-red);
+}
+
+.cm-header-5 {
+	color: var(--color-mkp-purple);
+}
+
+.cm-header-6 {
+	color: var(--color-mkp-orange);
+}
+
+.cm-editor {
+	color: var(--color-mkp-light);
+}
+
+.cm-comment {
+	color: var(--color-mkp-comment) !important;
+	font-style: italic;
+}
+
+.cm-keyword,
+.cm-operator {
+	color: var(--color-mkp-red) !important;
+}
+
+.cm-string {
+	color: var(--color-mkp-yellow) !important;
+}
+
+.cm-number,
+.cm-atom,
+.cm-bool {
+	color: var(--color-mkp-purple) !important;
+}
+
+.cm-def,
+.cm-variableName.cm-definition {
+	color: var(--color-mkp-green) !important;
+}
+
+.cm-typeName,
+.cm-className {
+	color: var(--color-mkp-blue) !important;
+	font-style: italic;
+}
+
+.cm-variableName {
+	color: var(--color-mkp-light) !important;
+}
+
+.cm-variableName.cm-local {
+	color: var(--color-mkp-orange) !important;
+	font-style: italic;
+}
+
+.cm-property {
+	color: var(--color-mkp-property) !important;
+}
+
+.cm-tagName {
+	color: var(--color-mkp-red) !important;
+}
+
+.cm-attributeName {
+	color: var(--color-mkp-blue) !important;
+	font-style: italic;
+}
+
+.cm-attributeValue {
+	color: var(--color-mkp-yellow) !important;
+}
+
+.cm-punctuation,
+.cm-bracket {
+	color: var(--color-mkp-punctuation) !important;
+}
+
+.cm-url {
+	color: var(--color-mkp-green) !important;
+}
+
+.cm-special {
+	color: var(--color-mkp-special) !important;
+	font-style: italic;
+}
+
+.markdown-rendered pre,
+.cm-editor .HyperMD-codeblock {
+	background-color: var(--color-mkp-codeblock-bg) !important;
+	color: var(--color-mkp-property) !important;
+}
+
+:not(pre) > code {
+	background-color: var(--color-mkp-inline-code-bg);
+	color: var(--color-mkp-orange);
+}
+
+.cm-editor .HyperMD-codeblock-begin {
+	border-radius: 12px 12px 0 0;
+	padding-top: 0.75rem;
+}
+
+.cm-editor .HyperMD-codeblock-end {
+	border-radius: 0 0 12px 12px;
+	padding-bottom: 0.75rem;
+}
+
+.code-block-flair {
+	color: var(--color-mkp-blue);
+	opacity: 0.7;
+}
+
+.code-block-flair:hover {
+	opacity: 1;
+}
