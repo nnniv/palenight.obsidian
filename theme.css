@@ -17,6 +17,66 @@
 	--color-mkp-codeblock-bg: #232735;
 }
 
+.theme-dark {
+	--background-primary: var(--color-mkp-night);
+	--background-secondary: var(--color-mkp-night);
+	--code-background: var(--color-mkp-night-lighter);
+}
+
+/* UI Stuff */
+.nav-folder-title-content {
+	color: var(--color-mkp-purple);
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
+}
+
+.nav-folder-title-content::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+	flex-shrink: 0;
+}
+/* Closed folder */
+.nav-folder:not(.is-collapsed)
+	> .nav-folder-title
+	.nav-folder-title-content::before {
+	background: var(--color-mkp-red);
+}
+
+option {
+	color: var(--color-mkp-purple);
+	border: transparent;
+}
+
+.dropdown {
+	color: var(--color-mkp-night);
+	background-color: var(--color-mkp-purple);
+}
+/* Open folder */
+.nav-folder.is-collapsed > .nav-folder-title .nav-folder-title-content::before {
+	background: var(--color-mkp-purple);
+}
+
+.nav-file-title-content {
+	color: var(--color-mkp-light);
+	display: flex;
+	align-items: center;
+	gap: 0.45rem;
+}
+
+.nav-file-title-content::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+
+	background-color: var(--color-mkp-orange);
+
+	flex-shrink: 0;
+}
+
 .workspace-tabs.mod-top,
 .workspace-tab-header-container {
 	background-color: var(--color-mkp-night) !important;
@@ -34,14 +94,35 @@
 	background-color: var(--color-mkp-night) !important;
 }
 
-button {
-	background-color: var(--color-mkp-purple) !important;
-	color: var(--color-mkp-night) !important;
+.inline-title {
+	color: var(--color-mkp-red);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
-.select {
-	background-color: var(--color-mkp-blue) !important;
+/* Container for squares */
+.inline-title::after {
+	content: "";
+	width: 44px;
+	height: 12px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-size:
+		12px 12px,
+		12px 12px,
+		12px 12px;
+	background-position:
+		0 0,
+		16px 0,
+		32px 0;
+
+	background-image:
+		linear-gradient(var(--color-mkp-purple), var(--color-mkp-purple)),
+		linear-gradient(var(--color-mkp-red), var(--color-mkp-red)),
+		linear-gradient(var(--color-mkp-orange), var(--color-mkp-orange));
 }
+
 body {
 	--font-text-theme: "Geist";
 	--font-monospace: "JetBrainsMono Nerd Font";
@@ -57,6 +138,8 @@ body {
 	--slider-thumb-radius: 0px;
 }
 
+/* CodeMirror Highlights */
+
 .cm-content {
 	font-variant-ligatures: contextual;
 	font-feature-settings: "calt", "liga";
@@ -67,12 +150,6 @@ code,
 .markdown-rendered pre code {
 	font-variant-ligatures: contextual;
 	font-feature-settings: "calt", "liga";
-}
-
-.theme-dark {
-	--background-primary: var(--color-mkp-night);
-	--background-secondary: var(--color-mkp-night);
-	--code-background: var(--color-mkp-night-lighter);
 }
 
 .workspace-tab-header.is-active::before,
@@ -98,6 +175,31 @@ svg * {
 .menu-separator {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
+
+button {
+	background-color: var(--color-mkp-purple) !important;
+	color: var(--color-mkp-night) !important;
+}
+
+/*.clickable-icon svg,
+button {
+	background-color: var(--color-mkp-night) !important;
+	stroke: var(--color-mkp-purple) !important;
+}*/
+
+.dropdown:hover {
+	background-color: var(--color-mkp-blue);
+}
+
+.checkbox-container {
+	background-color: var(--color-mkp-purple);
+}
+
+.checkbox-container.is-enabled {
+	background-color: var(--color-mkp-orange);
+}
+
+/* Syntax Highlighting */
 
 .cm-header {
 	font-family: "JetBrainsMono Nerd Font";
@@ -230,4 +332,92 @@ svg * {
 
 .code-block-flair:hover {
 	opacity: 1;
+}
+
+/* Rendered Markdown Syntax Highlighting */
+
+/* Copy Button */
+.copy-code-button button {
+	background-color: var(--color-mkp-night-lighter);
+}
+
+.copy-code-button svg {
+	background-color: var(--color-mkp-night-lighter);
+	color: var(--color-mkp-purple);
+}
+
+.markdown-rendered code[class*="language-"] {
+	color: var(--color-mkp-property);
+}
+
+.markdown-rendered .token.comment {
+	color: var(--color-mkp-comment);
+	font-style: italic;
+}
+
+.markdown-rendered .token.keyword,
+.markdown-rendered .token.operator {
+	color: var(--color-mkp-red);
+}
+
+.markdown-rendered .token.string {
+	color: var(--color-mkp-yellow);
+}
+
+.markdown-rendered .token.number,
+.markdown-rendered .token.boolean {
+	color: var(--color-mkp-purple);
+}
+
+.markdown-rendered .token.function {
+	color: var(--color-mkp-green);
+}
+
+.markdown-rendered .token.class-name {
+	color: var(--color-mkp-blue);
+	font-style: italic;
+}
+
+.markdown-rendered .token.property {
+	color: var(--color-mkp-property);
+}
+
+.markdown-rendered .token.tag {
+	color: var(--color-mkp-red);
+}
+
+.markdown-rendered .token.attr-name {
+	color: var(--color-mkp-blue);
+	font-style: italic;
+}
+
+.markdown-rendered .token.attr-value {
+	color: var(--color-mkp-yellow);
+}
+
+.markdown-rendered .token.punctuation {
+	color: var(--color-mkp-punctuation);
+}
+
+.markdown-rendered .token.url {
+	color: var(--color-mkp-green);
+}
+
+/* More specific rendered syntax highlighting */
+.markdown-rendered .token.constant,
+.markdown-rendered .token.variable.constant {
+	color: var(--color-mkp-green) !important;
+}
+
+.markdown-rendered .token.variable {
+	color: var(--color-mkp-light) !important;
+}
+
+.markdown-rendered .token.parameter {
+	color: var(--color-mkp-orange) !important;
+	font-style: italic;
+}
+
+.markdown-rendered .token.builtin {
+	color: var(--color-mkp-blue) !important;
 }
