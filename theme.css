@@ -660,6 +660,16 @@ code,
 	}
 }
 
+strong {
+	color: var(--color-mkp-red);
+}
+
+em {
+	color: var(--color-mkp-purple);
+}
+
+
+
 /* Rendered Markdown: copy button */
 .copy-code-button button {
 	background-color: var(--color-mkp-night-lighter);
