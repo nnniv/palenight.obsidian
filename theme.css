@@ -35,7 +35,6 @@
 	content: "";
 	width: 8px;
 	height: 8px;
-	border-radius: 2px;
 	flex-shrink: 0;
 }
 /* Closed folder */
@@ -50,9 +49,20 @@ option {
 	border: transparent;
 }
 
-.dropdown {
+.setting-item-control select.dropdown,
+select.dropdown {
+	-webkit-appearance: none !important;
+	appearance: none !important;
 	color: var(--color-mkp-night);
-	background-color: var(--color-mkp-purple);
+
+	padding-right: 2.2rem !important;
+	background: var(--color-mkp-purple)
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231a1b2a' d='M6 9l6 6 6-6z'/%3E%3C/svg%3E")
+		no-repeat right 0.6rem center / 18px 18px !important;
+}
+
+.mod-warning {
+	color: var(--color-mkp-orange);
 }
 /* Open folder */
 .nav-folder.is-collapsed > .nav-folder-title .nav-folder-title-content::before {
@@ -70,7 +80,6 @@ option {
 	content: "";
 	width: 8px;
 	height: 8px;
-	border-radius: 2px;
 
 	background-color: var(--color-mkp-orange);
 
@@ -176,16 +185,41 @@ svg * {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
 
-button {
+.callout[data-callout="warning"] {
+	background-color: var(--color-mkp-orange) !important;
+	color: var(--color-mkp-night) !important;
+}
+.callout[data-callout="warning"] .callout-title {
+	color: var(--color-mkp-night) !important;
+}
+
+.callout-icon svg {
+	color: var(--color-mkp-night) !important;
+}
+
+.callout a {
+	color: var(--color-mkp-night) !important;
+	text-decoration: none;
+}
+
+.callout a:hover {
+	text-decoration: underline;
+}
+
+input {
+	background-color: var(--color-mkp-night) !important;
+	color: var(--color-mkp-purple) !important;
+}
+
+.mod-cta,
+.setting-items button {
 	background-color: var(--color-mkp-purple) !important;
 	color: var(--color-mkp-night) !important;
 }
 
-/*.clickable-icon svg,
-button {
-	background-color: var(--color-mkp-night) !important;
-	stroke: var(--color-mkp-purple) !important;
-}*/
+.setting-group .setting-group-search {
+	background-color: var(--color-mkp-night);
+}
 
 .dropdown:hover {
 	background-color: var(--color-mkp-blue);
