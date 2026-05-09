@@ -1,3 +1,4 @@
+/* Theme color variables */
 :root {
 	--color-mkp-light: #f0edec;
 	--color-mkp-night: #1a1b2a;
@@ -17,13 +18,30 @@
 	--color-mkp-codeblock-bg: #232735;
 }
 
+/* Theme color mappings */
 .theme-dark {
 	--background-primary: var(--color-mkp-night);
 	--background-secondary: var(--color-mkp-night);
 	--code-background: var(--color-mkp-night-lighter);
 }
 
-/* UI Stuff */
+/* Typography and radius tokens */
+body {
+	--font-text-theme: "Geist";
+	--font-monospace: "JetBrainsMono Nerd Font";
+
+	--radius-s: 0px;
+	--radius-m: 0px;
+	--radius-l: 0px;
+	--input-radius: 0px;
+	--tab-radius-active: 0px;
+	--checkbox-radius: 0px;
+	--toggle-radius: 0px;
+	--toggle-thumb-radius: 0px;
+	--slider-thumb-radius: 0px;
+}
+
+/* Navigation: folder titles and indicators */
 .nav-folder-title-content {
 	color: var(--color-mkp-purple);
 	display: flex;
@@ -37,38 +55,18 @@
 	height: 8px;
 	flex-shrink: 0;
 }
-/* Closed folder */
+
 .nav-folder:not(.is-collapsed)
 	> .nav-folder-title
 	.nav-folder-title-content::before {
 	background: var(--color-mkp-red);
 }
 
-option {
-	color: var(--color-mkp-purple);
-	border: transparent;
-}
-
-.setting-item-control select.dropdown,
-select.dropdown {
-	-webkit-appearance: none !important;
-	appearance: none !important;
-	color: var(--color-mkp-night);
-
-	padding-right: 2.2rem !important;
-	background: var(--color-mkp-purple)
-		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%231a1b2a' d='M6 9l6 6 6-6z'/%3E%3C/svg%3E")
-		no-repeat right 0.6rem center / 18px 18px !important;
-}
-
-.mod-warning {
-	color: var(--color-mkp-orange);
-}
-/* Open folder */
 .nav-folder.is-collapsed > .nav-folder-title .nav-folder-title-content::before {
 	background: var(--color-mkp-purple);
 }
 
+/* Navigation: file titles */
 .nav-file-title-content {
 	color: var(--color-mkp-light);
 	display: flex;
@@ -86,6 +84,7 @@ select.dropdown {
 	flex-shrink: 0;
 }
 
+/* Workspace containers */
 .workspace-tabs.mod-top,
 .workspace-tab-header-container {
 	background-color: var(--color-mkp-night) !important;
@@ -103,6 +102,7 @@ select.dropdown {
 	background-color: var(--color-mkp-night) !important;
 }
 
+/* Inline title decoration */
 .inline-title {
 	color: var(--color-mkp-red);
 	display: flex;
@@ -110,7 +110,6 @@ select.dropdown {
 	justify-content: space-between;
 }
 
-/* Container for squares */
 .inline-title::after {
 	content: "";
 	width: 44px;
@@ -132,47 +131,7 @@ select.dropdown {
 		linear-gradient(var(--color-mkp-orange), var(--color-mkp-orange));
 }
 
-body {
-	--font-text-theme: "Geist";
-	--font-monospace: "JetBrainsMono Nerd Font";
-
-	--radius-s: 0px;
-	--radius-m: 0px;
-	--radius-l: 0px;
-	--input-radius: 0px;
-	--tab-radius-active: 0px;
-	--checkbox-radius: 0px;
-	--toggle-radius: 0px;
-	--toggle-thumb-radius: 0px;
-	--slider-thumb-radius: 0px;
-}
-
-/* CodeMirror Highlights */
-
-.cm-content {
-	font-variant-ligatures: contextual;
-	font-feature-settings: "calt", "liga";
-}
-
-code,
-.cm-inline-code,
-.markdown-rendered pre code {
-	font-variant-ligatures: contextual;
-	font-feature-settings: "calt", "liga";
-}
-
-.workspace-tab-header.is-active::before,
-.workspace-tab-header.is-active::after {
-	display: none;
-}
-
-svg * {
-	stroke-linecap: square;
-	stroke-linejoin: miter;
-	rx: 0;
-	ry: 0;
-}
-
+/* Menu spacing */
 .menu {
 	padding: var(--size-2-1);
 }
@@ -185,20 +144,110 @@ svg * {
 	margin: var(--size-2-1) calc(var(--size-2-1) * -1);
 }
 
-.callout[data-callout="warning"] {
-	background-color: var(--color-mkp-orange) !important;
-	color: var(--color-mkp-night) !important;
+/* Form controls: dropdowns and options */
+option {
+	color: var(--color-mkp-purple);
+	border: transparent;
 }
-.callout[data-callout="warning"] .callout-title {
+
+.setting-item-control select.dropdown,
+select.dropdown {
+	-webkit-appearance: none !important;
+	appearance: none !important;
+	color: var(--color-mkp-purple);
+	box-shadow: none !important;
+
+	padding-right: 2.2rem !important;
+	background: var(--color-mkp-night-lighter)
+		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ab9df2' d='M6 9l6 6 6-6z'/%3E%3C/svg%3E")
+		no-repeat right 0.6rem center / 18px 18px !important;
+}
+
+.dropdown:hover {
+	background-color: var(--color-mkp-blue);
+}
+
+/* Form controls: inputs and checkboxes */
+input {
+	background-color: var(--color-mkp-night) !important;
+	color: var(--color-mkp-purple) !important;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible,
+select:focus,
+select:focus-visible {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+input[type="range"],
+.slider {
+	background-color: var(--color-mkp-purple) !important;
+}
+
+input[type="range"]::-webkit-slider-thumb,
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none !important; /* Crucial: removes default OS styling */
+	appearance: none !important;
+
+	/* Change this variable to whichever color you want the knob to be */
+	background-color: var(--color-mkp-red) !important;
+
+	/* Optional: Obsidian sometimes adds a default border to thumbs, let's nuke it just in case */
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.setting-group .setting-group-search {
+	background-color: var(--color-mkp-night);
+}
+
+/* Settings buttons */
+.mod-cta,
+.setting-items button {
+	background-color: var(--color-mkp-night-lighter) !important;
+	color: var(--color-mkp-purple) !important;
+	box-shadow: none !important;
+}
+
+.setting-item-name {
+	color: var(--color-mkp-purple) !important;
+}
+
+.setting-item-heading .setting-item-name {
+	color: var(--color-mkp-red) !important;
+}
+
+/* Status and warnings */
+.mod-warning {
 	color: var(--color-mkp-night) !important;
+	background-color: var(--color-mkp-orange) !important;
+}
+
+.mod-cancel {
+	color: var(--color-mkp-night) !important;
+	background-color: var(--color-mkp-red) !important;
+}
+
+/* Callouts */
+.callout[data-callout="warning"] {
+	background-color: var(--color-mkp-night-lighter) !important;
+	/*color: var(--color-mkp-purple) !important;*/
+}
+
+.callout[data-callout="warning"] .callout-title {
+	color: var(--color-mkp-orange) !important;
 }
 
 .callout-icon svg {
-	color: var(--color-mkp-night) !important;
+	color: var(--color-mkp-orange) !important;
 }
 
 .callout a {
-	color: var(--color-mkp-night) !important;
+	color: var(--color-mkp-red) !important;
 	text-decoration: none;
 }
 
@@ -206,35 +255,147 @@ svg * {
 	text-decoration: underline;
 }
 
-input {
-	background-color: var(--color-mkp-night) !important;
+/* NOTE: I use Media Extended plugin, not the native audio Chromium player*/
+.audio-container,
+.audio-container audio {
+	background-color: transparent !important;
+}
+
+audio::-webkit-media-controls-panel {
+	background-color: var(--color-mkp-night-lighter) !important;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
 	color: var(--color-mkp-purple) !important;
+	font-family: var(--font-monospace) !important;
+	font-size: 0.8rem !important; /* <-- ADDED: Scales the text down */
 }
 
-.mod-cta,
-.setting-items button {
-	background-color: var(--color-mkp-purple) !important;
-	color: var(--color-mkp-night) !important;
+audio::-webkit-media-controls-timeline {
+	background-color: var(--color-mkp-night) !important;
+	border-radius: 0px !important;
+	/* <-- ADDED: Margin acts as horizontal padding to space out the slider --> */
+	margin-left: 20px !important;
+	margin-right: 20px !important;
 }
 
-.setting-group .setting-group-search {
-	background-color: var(--color-mkp-night);
-}
-
-.dropdown:hover {
-	background-color: var(--color-mkp-blue);
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button {
+	/* Mathematically shifts the white SVGs into a pastel purple */
+	filter: invert(70%) sepia(30%) saturate(800%) hue-rotate(210deg)
+		brightness(100%) contrast(90%) !important;
 }
 
 .checkbox-container {
-	background-color: var(--color-mkp-purple);
+	position: relative !important;
+	display: inline-block !important;
+	vertical-align: middle !important;
+	--switch-width: 36px;
+	--switch-height: 20px;
+	--switch-padding: 2px;
+	--switch-border: 2px;
+	width: var(--switch-width) !important;
+	height: var(--switch-height) !important;
+	min-width: var(--switch-width) !important;
+	min-height: var(--switch-height) !important;
+	padding: 0 !important;
+	border: none !important;
+	background-color: var(--color-mkp-night-lighter) !important;
+	box-sizing: border-box !important;
+	border-radius: 0 !important;
+	box-shadow: none !important; /* Nukes Obsidian container shadows */
+	overflow: hidden !important;
+	transition: background-color 0.15s ease !important;
 }
 
 .checkbox-container.is-enabled {
-	background-color: var(--color-mkp-orange);
+	background-color: var(--color-mkp-night-lighter) !important;
 }
 
-/* Syntax Highlighting */
+.checkbox-container::before {
+	display: none !important;
+}
 
+.checkbox-container::after {
+	content: "" !important;
+	position: absolute !important;
+	top: calc(var(--switch-border) + var(--switch-padding)) !important;
+	left: calc(var(--switch-border) + var(--switch-padding)) !important;
+	width: calc(
+		var(--switch-height) - (var(--switch-border) * 2) -
+			(var(--switch-padding) * 2)
+	) !important;
+	height: calc(
+		var(--switch-height) - (var(--switch-border) * 2) -
+			(var(--switch-padding) * 2)
+	) !important;
+	background-color: var(--color-mkp-purple) !important;
+
+	/* The Nuclear Resets */
+	border: none !important;
+	box-shadow: none !important; /* Kills default thumb drop shadow */
+	-webkit-mask: none !important; /* Kills modern Obsidian checkmark masks */
+	clip-path: none !important;
+
+	box-sizing: border-box !important;
+	margin: 0 !important;
+	border-radius: 0 !important;
+	transform: translateX(0) !important;
+	transition: transform 0.15s ease !important;
+}
+
+.checkbox-container.is-enabled::after {
+	background-color: var(--color-mkp-red) !important;
+	transform: translateX(
+		calc(var(--switch-width) - var(--switch-height))
+	) !important;
+}
+
+/* Editor ligatures */
+.cm-content {
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt", "liga";
+}
+
+code,
+.cm-inline-code,
+.markdown-rendered pre code {
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt", "liga";
+}
+
+/* Active tab header marker */
+.workspace-tab-header.is-active::before,
+.workspace-tab-header.is-active::after {
+	display: none;
+}
+
+/* SVG base styling */
+svg * {
+	stroke-linecap: square;
+	stroke-linejoin: miter;
+	rx: 0;
+	ry: 0;
+}
+
+/* Icon colors */
+.svg-icon,
+.clickable-icon {
+	color: var(--color-mkp-purple) !important;
+}
+
+.svg-icon [stroke],
+.clickable-icon svg [stroke] {
+	stroke: currentColor !important;
+}
+
+.svg-icon [fill]:not([fill="none"]),
+.clickable-icon svg [fill]:not([fill="none"]) {
+	fill: currentColor !important;
+}
+
+/* CodeMirror syntax highlighting */
 .cm-header {
 	font-family: "JetBrainsMono Nerd Font";
 }
@@ -338,6 +499,7 @@ input {
 	font-style: italic;
 }
 
+/* Code blocks and inline code */
 .markdown-rendered pre,
 .cm-editor .HyperMD-codeblock {
 	background-color: var(--color-mkp-codeblock-bg) !important;
@@ -359,6 +521,7 @@ input {
 	padding-bottom: 0.75rem;
 }
 
+/* Code block flair */
 .code-block-flair {
 	color: var(--color-mkp-blue);
 	opacity: 0.7;
@@ -368,9 +531,7 @@ input {
 	opacity: 1;
 }
 
-/* Rendered Markdown Syntax Highlighting */
-
-/* Copy Button */
+/* Rendered markdown: copy button */
 .copy-code-button button {
 	background-color: var(--color-mkp-night-lighter);
 }
@@ -380,6 +541,7 @@ input {
 	color: var(--color-mkp-purple);
 }
 
+/* Rendered markdown: syntax highlighting */
 .markdown-rendered code[class*="language-"] {
 	color: var(--color-mkp-property);
 }
@@ -437,7 +599,7 @@ input {
 	color: var(--color-mkp-green);
 }
 
-/* More specific rendered syntax highlighting */
+/* Rendered markdown: extended token highlighting */
 .markdown-rendered .token.constant,
 .markdown-rendered .token.variable.constant {
 	color: var(--color-mkp-green) !important;
@@ -454,4 +616,22 @@ input {
 
 .markdown-rendered .token.builtin {
 	color: var(--color-mkp-blue) !important;
+}
+
+/* Community Plugins */
+.community-item.tappable.is-selected {
+	color: var(--color-mkp-night) !important;
+}
+.community-item.tappable.is-selected * {
+	color: inherit !important;
+}
+
+.community-modal-button-container > button:nth-child(2) {
+	color: var(--color-mkp-night) !important;
+	background-color: var(--color-mkp-red);
+}
+
+.community-modal-button-container > button:nth-child(3) {
+	color: var(--color-mkp-night) !important;
+	background-color: var(--color-mkp-orange);
 }
