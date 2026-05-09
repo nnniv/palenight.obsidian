@@ -227,12 +227,39 @@ input[type="range"]::-webkit-slider-thumb,
 	background-color: var(--color-mkp-orange) !important;
 }
 
+.modal-content > p:nth-child(3),
+.modal-content > p:nth-child(4) {
+	color: var(--color-mkp-orange) !important;
+	background-color: var(--color-mkp-night) !important;
+}
+
 .mod-cancel {
 	color: var(--color-mkp-night) !important;
 	background-color: var(--color-mkp-red) !important;
 }
 
 /* Callouts */
+
+.callout[data-callout="info"] {
+	background-color: var(--color-mkp-night-lighter) !important;
+	/*color: var(--color-mkp-purple) !important;*/
+}
+
+.callout[data-callout="info"] .callout-title {
+	color: var(--color-mkp-green) !important;
+}
+
+.callout[data-callout="info"] svg {
+	color: var(--color-mkp-green) !important;
+}
+
+.callout[data-callout="info"] a {
+	color: var(--color-mkp-red) !important;
+	text-decoration: none;
+}
+
+/**/
+
 .callout[data-callout="warning"] {
 	background-color: var(--color-mkp-night-lighter) !important;
 	/*color: var(--color-mkp-purple) !important;*/
@@ -242,11 +269,11 @@ input[type="range"]::-webkit-slider-thumb,
 	color: var(--color-mkp-orange) !important;
 }
 
-.callout-icon svg {
+.callout[data-callout="warning"] svg {
 	color: var(--color-mkp-orange) !important;
 }
 
-.callout a {
+.callout[data-callout="warning"] a {
 	color: var(--color-mkp-red) !important;
 	text-decoration: none;
 }
@@ -256,6 +283,7 @@ input[type="range"]::-webkit-slider-thumb,
 }
 
 /* NOTE: I use Media Extended plugin, not the native audio Chromium player*/
+
 .audio-container,
 .audio-container audio {
 	background-color: transparent !important;
@@ -352,19 +380,6 @@ audio::-webkit-media-controls-mute-button {
 	) !important;
 }
 
-/* Editor ligatures */
-.cm-content {
-	font-variant-ligatures: contextual;
-	font-feature-settings: "calt", "liga";
-}
-
-code,
-.cm-inline-code,
-.markdown-rendered pre code {
-	font-variant-ligatures: contextual;
-	font-feature-settings: "calt", "liga";
-}
-
 /* Active tab header marker */
 .workspace-tab-header.is-active::before,
 .workspace-tab-header.is-active::after {
@@ -395,31 +410,35 @@ svg * {
 	fill: currentColor !important;
 }
 
-/* CodeMirror syntax highlighting */
+/* CodeMirror: ligatures */
+.cm-content {
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt", "liga";
+}
+
+code,
+.cm-inline-code,
+.markdown-rendered pre code {
+	font-variant-ligatures: contextual;
+	font-feature-settings: "calt", "liga";
+}
+
+/* CodeMirror: syntax highlighting */
 .cm-header {
 	font-family: "JetBrainsMono Nerd Font";
 }
 
-.cm-header-1 {
-	color: var(--color-mkp-red);
-}
-
-.cm-header-2 {
-	color: var(--color-mkp-purple);
-}
-
-.cm-header-3 {
-	color: var(--color-mkp-orange);
-}
-
+.cm-header-1,
 .cm-header-4 {
 	color: var(--color-mkp-red);
 }
 
+.cm-header-2,
 .cm-header-5 {
 	color: var(--color-mkp-purple);
 }
 
+.cm-header-3,
 .cm-header-6 {
 	color: var(--color-mkp-orange);
 }
@@ -438,7 +457,9 @@ svg * {
 	color: var(--color-mkp-red) !important;
 }
 
-.cm-string {
+.cm-string,
+.cm-string-2,
+.cm-regexp {
 	color: var(--color-mkp-yellow) !important;
 }
 
@@ -448,9 +469,28 @@ svg * {
 	color: var(--color-mkp-purple) !important;
 }
 
-.cm-def,
-.cm-variableName.cm-definition {
+.cm-def {
+	color: var(--color-mkp-purple) !important;
+}
+
+.cm-function,
+.cm-variableName.cm-function {
 	color: var(--color-mkp-green) !important;
+}
+
+.cm-parameter,
+.cm-variableName.cm-parameter {
+	color: var(--color-mkp-orange) !important;
+	font-style: italic;
+}
+
+.cm-variable {
+	color: var(--color-mkp-light);
+}
+
+.cm-builtin,
+.cm-variableName.cm-builtin {
+	color: var(--color-mkp-blue) !important;
 }
 
 .cm-typeName,
@@ -463,13 +503,23 @@ svg * {
 	color: var(--color-mkp-light) !important;
 }
 
+.cm-variableName.cm-definition {
+	color: var(--color-mkp-light) !important;
+}
+
 .cm-variableName.cm-local {
-	color: var(--color-mkp-orange) !important;
+	color: var(--color-mkp-light) !important;
 	font-style: italic;
 }
 
 .cm-property {
-	color: var(--color-mkp-property) !important;
+	color: var(--color-mkp-green) !important;
+}
+
+.cm-propertyName,
+.cm-namespace,
+.cm-interpolation {
+	color: var(--color-mkp-light) !important;
 }
 
 .cm-tagName {
@@ -521,6 +571,33 @@ svg * {
 	padding-bottom: 0.75rem;
 }
 
+/* CodeMirror: code block overrides */
+.cm-editor .HyperMD-codeblock .cm-function,
+.cm-editor .HyperMD-codeblock .cm-variableName.cm-function {
+	color: var(--color-mkp-green) !important;
+}
+
+.cm-editor .HyperMD-codeblock .cm-constant,
+.cm-editor .HyperMD-codeblock .cm-variableName.cm-constant {
+	color: var(--color-mkp-purple) !important;
+}
+
+.cm-editor .HyperMD-codeblock .cm-type,
+.cm-editor .HyperMD-codeblock .cm-typeName,
+.cm-editor .HyperMD-codeblock .cm-className {
+	color: var(--color-mkp-blue) !important;
+	font-style: italic;
+}
+
+.cm-editor .HyperMD-codeblock .cm-punctuation {
+	color: var(--color-mkp-red) !important;
+}
+
+.cm-editor .HyperMD-codeblock .cm-bracket,
+.cm-editor .HyperMD-codeblock .cm-punctuation.cm-bracket {
+	color: var(--color-mkp-punctuation) !important;
+}
+
 /* Code block flair */
 .code-block-flair {
 	color: var(--color-mkp-blue);
@@ -531,7 +608,51 @@ svg * {
 	opacity: 1;
 }
 
-/* Rendered markdown: copy button */
+/* Rendered Markdown: headings */
+.markdown-rendered h1,
+.markdown-rendered h4 {
+	color: var(--color-mkp-red) !important;
+}
+
+.markdown-rendered h2,
+.markdown-rendered h5 {
+	color: var(--color-mkp-purple) !important;
+}
+
+.markdown-rendered h3,
+.markdown-rendered h6 {
+	color: var(--color-mkp-orange) !important;
+}
+
+.markdown-rendered h1,
+.markdown-rendered h2,
+.markdown-rendered h3,
+.markdown-rendered h4,
+.markdown-rendered h5,
+.markdown-rendered h6 {
+	font-family: var(--font-monospace) !important;
+}
+
+/* Rendered Markdown: print */
+@media print {
+	@page {
+		margin: 0px !important;
+	}
+
+	body {
+		-webkit-print-color-adjust: exact !important;
+		print-color-adjust: exact !important;
+	}
+
+	body,
+	.print .markdown-preview-view,
+	.markdown-rendered {
+		background-color: var(--color-mkp-night) !important;
+		color: var(--color-mkp-light) !important;
+	}
+}
+
+/* Rendered Markdown: copy button */
 .copy-code-button button {
 	background-color: var(--color-mkp-night-lighter);
 }
@@ -541,7 +662,7 @@ svg * {
 	color: var(--color-mkp-purple);
 }
 
-/* Rendered markdown: syntax highlighting */
+/* Rendered Markdown: syntax highlighting */
 .markdown-rendered code[class*="language-"] {
 	color: var(--color-mkp-property);
 }
@@ -599,14 +720,10 @@ svg * {
 	color: var(--color-mkp-green);
 }
 
-/* Rendered markdown: extended token highlighting */
+/* Rendered Markdown: extended token highlighting */
 .markdown-rendered .token.constant,
 .markdown-rendered .token.variable.constant {
-	color: var(--color-mkp-green) !important;
-}
-
-.markdown-rendered .token.variable {
-	color: var(--color-mkp-light) !important;
+	color: var(--color-mkp-purple) !important;
 }
 
 .markdown-rendered .token.parameter {
@@ -616,6 +733,15 @@ svg * {
 
 .markdown-rendered .token.builtin {
 	color: var(--color-mkp-blue) !important;
+}
+
+/* Rendered Markdown: extended token variants */
+.markdown-rendered .token.variable,
+.markdown-rendered .token.property-access,
+.markdown-rendered .token.module,
+.markdown-rendered .token.interpolation,
+.markdown-rendered .token.interpolation-punctuation {
+	color: var(--color-mkp-light) !important;
 }
 
 /* Community Plugins */
