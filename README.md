@@ -3,7 +3,7 @@
 Obsidian port of my Monokai Palenight theme. 
 
 
-<img src="https://raw.githubusercontent.com/nnniv/images/refs/heads/main/obsidian/demo-2.png">
+<img src="assets/screenshot.png">
 
 
 > [!NOTE]  
