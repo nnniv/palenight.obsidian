@@ -503,6 +503,14 @@ code,
 	color: var(--color-mkp-light) !important;
 }
 
+.cm-strong {
+	color: var(--color-mkp-red) !important;
+}
+
+.cm-em {
+	color: var(--color-mkp-purple) !important;
+}
+
 .cm-variableName.cm-definition {
 	color: var(--color-mkp-light) !important;
 }
